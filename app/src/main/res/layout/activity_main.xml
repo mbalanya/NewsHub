@@ -47,7 +47,7 @@
         android:text="Trending News"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp"
-        android:layout_marginBottom="250dp"
+        android:layout_marginBottom="300dp"
         android:shadowColor="@color/colorPrimaryDark"/>
 
 </RelativeLayout>

@@ -26,9 +26,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String headline = mHeadlineEditText.getText().toString();
-                Log.d(TAG, headline);
                 Toast.makeText(MainActivity.this, "Hot News", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(MainActivity.this, TrendingNewsActivity.class);
+                intent.putExtra("headline", headline);
                 startActivity(intent);
             }
         });
