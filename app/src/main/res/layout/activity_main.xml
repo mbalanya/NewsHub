@@ -26,15 +26,28 @@
         android:textSize="75sp"
         android:textStyle="normal|bold" />
 
+    <EditText
+        android:id="@+id/headlineEditText"
+        android:layout_above="@+id/trendingNewsButton"
+        android:hint="Enter Headline phrase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="15dp"
+        android:background="@android:color/holo_blue_bright"
+        android:padding="10dp" />
+
     <Button
         android:id="@+id/trendingNewsButton"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:background="@color/colorAccent"
+        android:background="@android:color/background_light"
         android:text="Trending News"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="20sp"/>
+        android:textSize="20sp"
+        android:layout_marginBottom="250dp"
+        android:shadowColor="@color/colorPrimaryDark"/>
 
 </RelativeLayout>
