@@ -9,6 +9,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
@@ -25,5 +26,14 @@ public class MainActivityInstrumentationTest {
     public void validateEditText() {
         onView(withId(R.id.headlineEditText)).perform(typeText("sports"))
                 .check(matches(withText("sports")));
+    }
+
+    @Test
+    public void headlineIsSentToTrendingNewsActivity() {
+        String headline = "Business";
+        onView(withId(R.id.headlineEditText)).perform(typeText(headline));
+        onView(withId(R.id.trendingNewsButton)).perform(click());
+        onView(withId(R.id.headlineTextView)).check(matches
+                (withText("Here is the trending news about " + headline)));
     }
 }

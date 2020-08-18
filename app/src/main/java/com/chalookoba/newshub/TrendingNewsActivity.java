@@ -19,6 +19,6 @@ public class TrendingNewsActivity extends AppCompatActivity {
         mHeadlineTextView = (TextView) findViewById(R.id.headlineTextView);
         Intent intent = getIntent();
         String headline = intent.getStringExtra("headline");
-        mHeadlineTextView.setText("Here are the trending news about " + headline);
+        mHeadlineTextView.setText("Here is the trending news about " + headline);
     }
 }
