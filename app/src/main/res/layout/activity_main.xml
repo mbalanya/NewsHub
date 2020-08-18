@@ -14,14 +14,17 @@
         android:scaleType="centerCrop" />
 
     <TextView
+        android:id="@+id/appNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="News Hub"
-        android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="135dp"
-        android:textColor="@color/colorPrimary"
-        android:textSize="40sp"/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="180dp"
+        android:fontFamily="@font/josefin_sans"
+        android:text="News Hub"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="75sp"
+        android:textStyle="normal|bold" />
 
     <Button
         android:id="@+id/button"
@@ -30,7 +33,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:background="@color/colorAccent"
-        android:text="Find Restaurants"
+        android:text="Trending News"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp"/>
 
