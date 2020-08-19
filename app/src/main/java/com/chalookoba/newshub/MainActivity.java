@@ -14,7 +14,7 @@ import android.widget.Toast;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     public static final String TAG = MainActivity.class.getSimpleName();
     @BindView(R.id.trendingNewsButton) Button mTrendingNewsButton;
     @BindView(R.id.headlineEditText) EditText mHeadlineEditText;
@@ -26,15 +26,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        mTrendingNewsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String headline = mHeadlineEditText.getText().toString();
-                Toast.makeText(MainActivity.this, "Hot News", Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(MainActivity.this, TrendingNewsActivity.class);
-                intent.putExtra("headline", headline);
-                startActivity(intent);
-            }
-        });
+        mTrendingNewsButton.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        String title = mHeadlineEditText.getText().toString();
+        Toast.makeText(MainActivity.this, "Hot News", Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(MainActivity.this, TrendingNewsActivity.class);
+        intent.putExtra("title", title);
+        startActivity(intent);
     }
 }

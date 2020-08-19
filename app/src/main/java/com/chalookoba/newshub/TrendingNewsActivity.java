@@ -46,7 +46,7 @@ public class TrendingNewsActivity extends AppCompatActivity {
         });
 
         Intent intent = getIntent();
-        String headline = intent.getStringExtra("headline");
-        mHeadlineTextView.setText("Here is the trending news about " + headline);
+        String title = intent.getStringExtra("title");
+        mHeadlineTextView.setText("Here is the trending news about " + title);
     }
 }
