@@ -6,13 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".TrendingNewsActivity">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:src="@drawable/news_background"
+        android:scaleType="centerCrop" />
 
     <TextView
         android:id="@+id/headlineTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="News about "
-        android:layout_centerVertical="true"
+        android:layout_marginTop="30dp"
         android:layout_centerHorizontal="true" />
 
     <ListView
