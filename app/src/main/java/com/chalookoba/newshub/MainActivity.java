@@ -8,20 +8,24 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
     public static final String TAG = MainActivity.class.getSimpleName();
-    private Button mTrendingNewsButton;
-    private EditText mHeadlineEditText;
+    @BindView(R.id.trendingNewsButton) Button mTrendingNewsButton;
+    @BindView(R.id.headlineEditText) EditText mHeadlineEditText;
+    @BindView(R.id.appNameTextView) TextView mAppNameTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
 
-        mHeadlineEditText = (EditText)findViewById(R.id.headlineEditText);
-        mTrendingNewsButton = (Button)findViewById(R.id.trendingNewsButton);
         mTrendingNewsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -13,9 +13,12 @@ import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class TrendingNewsActivity extends AppCompatActivity {
-    private TextView mHeadlineTextView;
-    private ListView mListview;
+    @BindView(R.id.headlineTextView) TextView mHeadlineTextView;
+    @BindView(R.id.listView) ListView mListview;
     private String[] headlines = new String[] {"Mi Mero Mole", "Mother's Bistro",
             "Life of Pie", "Screen Door", "Luc Lac", "Sweet Basil",
             "Slappy Cakes", "Equinox", "Miss Delta's", "Andina",
@@ -26,9 +29,7 @@ public class TrendingNewsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trending_news);
-
-        mListview = (ListView) findViewById(R.id.listView);
-        mHeadlineTextView = (TextView) findViewById(R.id.headlineTextView);
+        ButterKnife.bind(this);
 
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, headlines);
         mListview.setAdapter(adapter);
