@@ -15,7 +15,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-    public static final String TAG = MainActivity.class.getSimpleName();
+    public static final String TAG = MainActivity.class.getSimpleName(); //TAG to be used for logging
     @BindView(R.id.trendingNewsButton) Button mTrendingNewsButton;
     @BindView(R.id.headlineEditText) EditText mHeadlineEditText;
     @BindView(R.id.appNameTextView) TextView mAppNameTextView;
@@ -26,14 +26,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        mTrendingNewsButton.setOnClickListener(this);
+        mTrendingNewsButton.setOnClickListener(this); // set onClickListener
     }
 
     @Override
     public void onClick(View v) {
         String title = mHeadlineEditText.getText().toString();
         Toast.makeText(MainActivity.this, "Hot News", Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(MainActivity.this, TrendingNewsActivity.class);
+        Intent intent = new Intent(MainActivity.this, TrendingNewsActivity.class); // pass intent to TrendingNewsActivity
         intent.putExtra("title", title);
         startActivity(intent);
     }

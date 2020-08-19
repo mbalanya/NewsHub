@@ -17,8 +17,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class TrendingNewsActivity extends AppCompatActivity {
-    @BindView(R.id.headlineTextView) TextView mHeadlineTextView;
-    @BindView(R.id.listView) ListView mListview;
+    @BindView(R.id.headlineTextView) TextView mHeadlineTextView; // access textview
+    @BindView(R.id.listView) ListView mListview; // access listview
     private String[] title = new String[] {"Mi Mero Mole", "Mother's Bistro",
             "Life of Pie", "Screen Door", "Luc Lac", "Sweet Basil",
             "Slappy Cakes", "Equinox", "Miss Delta's", "Andina",
@@ -34,7 +34,7 @@ public class TrendingNewsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_trending_news);
         ButterKnife.bind(this);
 
-        TrendingNewsArrayAdapter adapter = new TrendingNewsArrayAdapter(this, android.R.layout.simple_list_item_1, title, author);
+        TrendingNewsArrayAdapter adapter = new TrendingNewsArrayAdapter(this, android.R.layout.simple_list_item_1, title, author); //instance of custom ArrayAdapter (TrendingNewsArrayAdapter)
         mListview.setAdapter(adapter);
 
         mListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -45,7 +45,7 @@ public class TrendingNewsActivity extends AppCompatActivity {
             }
         });
 
-        Intent intent = getIntent();
+        Intent intent = getIntent(); //get intent from MainActivity
         String title = intent.getStringExtra("title");
         mHeadlineTextView.setText("Here is the trending news about " + title);
     }
