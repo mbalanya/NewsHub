@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/restaurantImageView"
+        android:id="@+id/trendingNewsImageView"
         android:layout_width="130dp"
         android:layout_height="100dp"
         android:scaleType="centerCrop"
@@ -30,7 +30,7 @@
 
         <TextView
             android:id="@+id/authorTextView"
-            android:layout_below="@+id/trendingNewsNameTextViewNameTextView"
+            android:layout_below="@+id/trendingNewsNameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Google-news"
