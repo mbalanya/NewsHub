@@ -43,6 +43,10 @@ public class TrendingNewsListAdapter extends RecyclerView.Adapter<TrendingNewsLi
             mContext = itemView.getContext();
         }
 
-
+        public void bindTrendingNews(Article article) {
+            mTrendingNewsNameTextView.setText(article.getTitle());
+            mAuthorTextView.setText(article.getAuthor());
+            mPostedAtTextView.setText("Posted at: " + article.getPublishedAt());
+        }
     }
 }
