@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -23,11 +24,12 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class TrendingNewsActivity extends AppCompatActivity {
+    private static final String TAG = TrendingNewsActivity.class.getSimpleName();
     @BindView(R.id.headlineTextView) TextView mHeadlineTextView; // access textview
     @BindView(R.id.listView) ListView mListview; // access listview
     @BindView(R.id.errorTextView) TextView mErrorTextView;
     @BindView(R.id.progressBar) ProgressBar mProgressBar;
-    private String[] title = new String[] {"Mi Mero Mole", "Mother's Bistro",
+    /*private String[] title = new String[] {"Mi Mero Mole", "Mother's Bistro",
             "Life of Pie", "Screen Door", "Luc Lac", "Sweet Basil",
             "Slappy Cakes", "Equinox", "Miss Delta's", "Andina",
             "Lardo", "Portland City Grill", "Fat Head's Brewery",
@@ -35,15 +37,15 @@ public class TrendingNewsActivity extends AppCompatActivity {
     private String[] author = new String[] {"Vegan Food", "Breakfast", "Fishs Dishs",
             "Scandinavian", "Coffee", "English Food", "Burgers", "Fast Food", "Noodle Soups",
             "Mexican", "BBQ", "Cuban", "Bar Food", "Sports Bar", "Breakfast", "Mexican" };
-
+*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trending_news);
         ButterKnife.bind(this);
 
-        TrendingNewsArrayAdapter adapter = new TrendingNewsArrayAdapter(this, android.R.layout.simple_list_item_1, title, author); //instance of custom ArrayAdapter (TrendingNewsArrayAdapter)
-        mListview.setAdapter(adapter);
+        /*TrendingNewsArrayAdapter adapter = new TrendingNewsArrayAdapter(this, android.R.layout.simple_list_item_1, title, author); //instance of custom ArrayAdapter (TrendingNewsArrayAdapter)
+        mListview.setAdapter(adapter);*/
 
         mListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -63,6 +65,8 @@ public class TrendingNewsActivity extends AppCompatActivity {
         call.enqueue(new Callback<NewsHubSearchResponse>() {
             @Override
             public void onResponse(Call<NewsHubSearchResponse> call, Response<NewsHubSearchResponse> response) {
+
+                hideProgressBar();
                 if (response.isSuccessful()) {
                     List<Article> articlesList = response.body().getArticles();
                     String[] title = new String[articlesList.size()];
@@ -79,12 +83,18 @@ public class TrendingNewsActivity extends AppCompatActivity {
                     ArrayAdapter adapter
                             = new TrendingNewsArrayAdapter(TrendingNewsActivity.this, android.R.layout.simple_list_item_1, title, author);
                     mListview.setAdapter(adapter);
+
+                    showHeadlines();
+                } else {
+                    showUnsuccessfulMessage();
                 }
             }
 
             @Override
             public void onFailure(Call<NewsHubSearchResponse> call, Throwable t) {
-
+                Log.e(TAG, "onFailure: ", t);
+                hideProgressBar();
+                showFailureMessage();
             }
 
         });
@@ -99,7 +109,7 @@ public class TrendingNewsActivity extends AppCompatActivity {
         mErrorTextView.setVisibility(View.VISIBLE);
     }
 
-    private void showRestaurants() {
+    private void showHeadlines() {
         mListview.setVisibility(View.VISIBLE);
         mHeadlineTextView.setVisibility(View.VISIBLE);
     }
