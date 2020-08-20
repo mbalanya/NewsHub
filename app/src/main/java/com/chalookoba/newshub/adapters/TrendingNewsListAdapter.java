@@ -27,7 +27,22 @@ public class TrendingNewsListAdapter extends RecyclerView.Adapter<TrendingNewsLi
         mArticles = articles;
     }
 
+    @Override
+    public TrendingNewsListAdapter.TrendingNewsViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.trending_news_list_item, parent, false);
+        TrendingNewsViewHolder viewHolder = new TrendingNewsViewHolder(view);
+        return viewHolder;
+    }
 
+    @Override
+    public void onBindViewHolder(TrendingNewsListAdapter.TrendingNewsViewHolder holder, int position) {
+        holder.bindTrendingNews(mArticles.get(position));
+    }
+
+    @Override
+    public int getItemCount(){
+        return mArticles.size();
+    }
 
     public class TrendingNewsViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.trendingNewsImageView) ImageView mTrendingNewsImageView;
