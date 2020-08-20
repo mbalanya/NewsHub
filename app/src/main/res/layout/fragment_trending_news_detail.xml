@@ -8,13 +8,13 @@
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorPrimary">
+        android:orientation="vertical"
+        tools:background="@drawable/news_background">
 
         <ImageView
-            android:id="@+id/restaurantImageView"
+            android:id="@+id/trendingNewsDetailImageView"
             android:layout_width="match_parent"
             android:layout_height="180dp"
             android:scaleType="centerCrop"
@@ -24,42 +24,42 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/white"
-            android:paddingTop="20dp"
             android:paddingLeft="10dp"
+            android:paddingTop="20dp"
             android:paddingRight="10dp"
             android:paddingBottom="20dp">
 
             <TextView
+                android:id="@+id/trendingNewsDetailNameTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Restaurant Name"
-                android:id="@+id/restaurantNameTextView"
-                android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:textSize="20sp"
+                android:layout_alignParentLeft="true"
+                android:text="News Title"
                 android:textColor="@color/colorPrimaryDark"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/publishedTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4.5/5"
-                android:id="@+id/ratingTextView"
-                android:layout_alignTop="@+id/restaurantNameTextView"
-                android:layout_alignParentRight="true"
+                android:layout_alignTop="@+id/authorTextView"
                 android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:text="2020-08-20T16:56:09Z"
                 android:textColor="@color/colorAccent"
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/authorTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Brunch, American"
-                android:id="@+id/cuisineTextView"
-                android:layout_below="@+id/restaurantNameTextView"
-                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/trendingNewsDetailNameTextView"
                 android:layout_alignParentStart="true"
-                android:textColor="@color/colorSecondaryText"
+                android:layout_alignParentLeft="true"
+                android:text="Google News"
+                android:textColor="@color/colorPrimary"
                 android:textStyle="italic" />
         </RelativeLayout>
 
@@ -68,66 +68,54 @@
             android:layout_height="match_parent">
 
             <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true"
+                android:layout_above="@+id/saveTrendingNewsDetailButton"
                 android:layout_alignParentStart="true"
-                android:layout_above="@+id/saveRestaurantButton"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:orientation="vertical"
                 android:paddingLeft="30dp"
                 android:paddingTop="20dp"
                 android:paddingRight="30dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="View on Yelp"
-                    android:id="@+id/websiteTextView"
-                    android:drawableLeft="@drawable/ic_exit_to_app_white_24dp"
-                    android:drawablePadding="4dp"
-                    android:textColor="@color/colorTextIcons"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="10dp"
-                    android:gravity="center" />
 
                 <TextView
+                    android:id="@+id/contentTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="(503) 223-1282"
-                    android:id="@+id/phoneTextView"
-                    android:drawableLeft="@drawable/ic_local_phone_white_24dp"
-                    android:drawablePadding="4dp"
-                    android:textColor="@color/colorTextIcons"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
                     android:layout_marginBottom="10dp"
-                    android:gravity="center"/>
+                    android:drawableLeft="@drawable/baseline_description_black_24dp"
+                    android:drawablePadding="4dp"
+                    android:gravity="center"
+                    android:text="Content"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp"
+                    android:textStyle="normal" />
 
                 <TextView
+                    android:id="@+id/linkTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="123 SW Best Ever Ave. Portland, Oregon, 97222"
-                    android:drawableLeft="@drawable/ic_map_white_24dp"
-                    android:drawablePadding="4dp"
-                    android:id="@+id/addressTextView"
-                    android:textColor="@color/colorTextIcons"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
                     android:layout_marginBottom="10dp"
-                    android:gravity="center_vertical"/>
+                    android:drawableLeft="@drawable/baseline_link_black_24dp"
+                    android:drawablePadding="4dp"
+                    android:gravity="center_vertical"
+                    android:text="www.news.com"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="15sp"
+                    android:textStyle="normal" />
 
             </LinearLayout>
 
             <Button
+                android:id="@+id/saveTrendingNewsDetailButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Save Restaurant"
-                android:id="@+id/saveRestaurantButton"
                 android:layout_alignParentBottom="true"
                 android:background="@color/colorAccent"
-                android:textColor="@color/colorTextIcons"
+                android:text="Save News"
+                android:textColor="@android:color/background_dark"
                 android:textSize="15sp" />
         </RelativeLayout>
     </LinearLayout>
