@@ -99,5 +99,12 @@ public class TrendingNewsActivity extends AppCompatActivity {
         mErrorTextView.setVisibility(View.VISIBLE);
     }
 
+    private void showRestaurants() {
+        mListview.setVisibility(View.VISIBLE);
+        mHeadlineTextView.setVisibility(View.VISIBLE);
+    }
 
+    private void hideProgressBar() {
+        mProgressBar.setVisibility(View.GONE);
+    }
 }
