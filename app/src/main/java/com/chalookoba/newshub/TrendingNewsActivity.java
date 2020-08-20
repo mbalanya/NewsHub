@@ -13,8 +13,13 @@ import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class TrendingNewsActivity extends AppCompatActivity {
     @BindView(R.id.headlineTextView) TextView mHeadlineTextView; // access textview
@@ -48,5 +53,7 @@ public class TrendingNewsActivity extends AppCompatActivity {
         Intent intent = getIntent(); //get intent from MainActivity
         String title = intent.getStringExtra("title");
         mHeadlineTextView.setText("Here is the trending news about " + title);
+
+
     }
 }
