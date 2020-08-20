@@ -7,8 +7,13 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.chalookoba.newshub.R;
+
+import butterknife.BindView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,6 +21,13 @@ import com.chalookoba.newshub.R;
  * create an instance of this fragment.
  */
 public class TrendingNewsDetailFragment extends Fragment {
+    @BindView(R.id.trendingNewsDetailImageView) ImageView mImageLabel;
+    @BindView(R.id.trendingNewsDetailNameTextView) TextView mTitleLabel;
+    @BindView(R.id.authorTextView) TextView mAuthorLabel;
+    @BindView(R.id.publishedTextView) TextView mPublishedLabel;
+    @BindView(R.id.contentTextView) TextView mContentLabel;
+    @BindView(R.id.linkTextView) TextView mLinkLabel;
+    @BindView(R.id.saveTrendingNewsDetailButton) Button mSaveTrendingNewsDetailButton;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
