@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import com.chalookoba.newshub.models.Article;
 import com.chalookoba.newshub.ui.TrendingNewsDetailFragment;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TrendingNewsPagerAdapter extends FragmentPagerAdapter {

@@ -54,7 +54,7 @@ public class TrendingNewsListAdapter extends RecyclerView.Adapter<TrendingNewsLi
             int itemPosition = getLayoutPosition();
             Intent intent = new Intent(mContext, TrendingNewsDetailActivity.class);
             intent.putExtra("position", itemPosition);
-            intent.putExtra("atricles", Parcels.wrap(mArticles));
+            intent.putExtra("articles", Parcels.wrap(mArticles));
             mContext.startActivity(intent);
         }
 

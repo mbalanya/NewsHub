@@ -53,14 +53,7 @@ public class TrendingNewsDetailFragment extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param article Parameter 1.
-     * @param article Parameter 2.
-     * @return A new instance of fragment TrendingNewsDetailFragment.
-     */
+
     // TODO: Rename and change types and number of parameters
     public static TrendingNewsDetailFragment newInstance(Article article) {
         TrendingNewsDetailFragment trendingNewsDetailFragment = new TrendingNewsDetailFragment();
