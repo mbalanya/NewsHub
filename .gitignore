@@ -14,7 +14,7 @@
 .cxx
 /.idea
 /gradle
-gradlew
-gradlew.bat
-settings.gradle
-gradle.properties
+.gradlew
+.gradlew.bat
+.settings.gradle
+.gradle.properties
