@@ -1,5 +1,7 @@
 package com.chalookoba.newshub.ui;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -29,7 +31,7 @@ import butterknife.ButterKnife;
  * Use the {@link TrendingNewsDetailFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class TrendingNewsDetailFragment extends Fragment {
+public class TrendingNewsDetailFragment extends Fragment implements View.OnClickListener {
     @BindView(R.id.trendingNewsDetailImageView) ImageView mImageLabel;
     @BindView(R.id.trendingNewsDetailNameTextView) TextView mTitleLabel;
     @BindView(R.id.authorTextView) TextView mAuthorLabel;
@@ -84,6 +86,15 @@ public class TrendingNewsDetailFragment extends Fragment {
         mContentLabel.setText(mArticle.getContent());
         mLinkLabel.setText(mArticle.getUrl());
 
+        mLinkLabel.setOnClickListener(this);
         return view;
+    }
+
+    @Override
+    public void onClick(View v){
+        if (v == mLinkLabel) {
+            Intent linkIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(mArticle.getUrl()));
+            startActivity(linkIntent);
+        }
     }
 }
