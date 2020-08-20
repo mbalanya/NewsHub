@@ -7,11 +7,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.chalookoba.newshub.Constants;
 import com.chalookoba.newshub.R;
 import com.chalookoba.newshub.models.Article;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -27,24 +29,7 @@ public class TrendingNewsListAdapter extends RecyclerView.Adapter<TrendingNewsLi
         mArticles = articles;
     }
 
-    @Override
-    public TrendingNewsListAdapter.TrendingNewsViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.trending_news_list_item, parent, false);
-        TrendingNewsViewHolder viewHolder = new TrendingNewsViewHolder(view);
-        return viewHolder;
-    }
-
-    @Override
-    public void onBindViewHolder(TrendingNewsListAdapter.TrendingNewsViewHolder holder, int position) {
-        holder.bindTrendingNews(mArticles.get(position));
-    }
-
-    @Override
-    public int getItemCount(){
-        return mArticles.size();
-    }
-
-    public class TrendingNewsViewHolder extends RecyclerView.ViewHolder {
+    public static class TrendingNewsViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.trendingNewsImageView) ImageView mTrendingNewsImageView;
         @BindView(R.id.trendingNewsNameTextView) TextView mTrendingNewsNameTextView;
         @BindView(R.id.authorTextView) TextView mAuthorTextView;
@@ -59,9 +44,28 @@ public class TrendingNewsListAdapter extends RecyclerView.Adapter<TrendingNewsLi
         }
 
         public void bindTrendingNews(Article article) {
+            Picasso.get().load(article.getUrlToImage()).into(mTrendingNewsImageView);
             mTrendingNewsNameTextView.setText(article.getTitle());
             mAuthorTextView.setText(article.getAuthor());
             mPostedAtTextView.setText("Posted at: " + article.getPublishedAt());
         }
+    }
+
+    @NonNull
+    @Override
+    public TrendingNewsListAdapter.TrendingNewsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.trending_news_list_item, parent, false);
+        TrendingNewsViewHolder viewHolder = new TrendingNewsViewHolder(view);
+        return viewHolder;
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull TrendingNewsListAdapter.TrendingNewsViewHolder holder, int position) {
+        holder.bindTrendingNews(mArticles.get(position));
+    }
+
+    @Override
+    public int getItemCount(){
+        return mArticles.size();
     }
 }

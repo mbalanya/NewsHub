@@ -1,4 +1,4 @@
-package com.chalookoba.newshub;
+package com.chalookoba.newshub.adapters;
 
 import android.content.Context;
 import android.widget.ArrayAdapter;
