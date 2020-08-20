@@ -54,6 +54,36 @@ public class TrendingNewsActivity extends AppCompatActivity {
         String title = intent.getStringExtra("title");
         mHeadlineTextView.setText("Here is the trending news about " + title);
 
+        NewsApi client = NewsClient.getClient();
+        Call<NewsHubSearchResponse> call = client.getHeadlines(title, Constants.NEWS_API_KEY );
 
+        call.enqueue(new Callback<NewsHubSearchResponse>() {
+            @Override
+            public void onResponse(Call<NewsHubSearchResponse> call, Response<NewsHubSearchResponse> response) {
+                if (response.isSuccessful()) {
+                    List<Article> articlesList = response.body().getArticles();
+                    String[] title = new String[articlesList.size()];
+                    String[] author = new String[articlesList.size()];
+
+                    for (int i = 0; i < title.length; i++){
+                        title[i] = articlesList.get(i).getTitle();
+                    }
+
+                    for (int i = 0; i < author.length; i++) {
+                        author[i] = articlesList.get(i).getAuthor();
+                    }
+
+                    ArrayAdapter adapter
+                            = new TrendingNewsArrayAdapter(TrendingNewsActivity.this, android.R.layout.simple_list_item_1, title, author);
+                    mListview.setAdapter(adapter);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<NewsHubSearchResponse> call, Throwable t) {
+
+            }
+
+        });
     }
 }
