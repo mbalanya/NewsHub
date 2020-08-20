@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         String title = mHeadlineEditText.getText().toString();
         Toast.makeText(MainActivity.this, "Hot News", Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(MainActivity.this, TrendingNewsActivity.class); // pass intent to TrendingNewsActivity
+        Intent intent = new Intent(MainActivity.this, TrendingNewsListActivity.class); // pass intent to TrendingNewsActivity
         intent.putExtra("title", title);
         startActivity(intent);
     }
