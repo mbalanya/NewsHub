@@ -37,6 +37,12 @@ public class TrendingNewsListAdapter extends RecyclerView.Adapter<TrendingNewsLi
 
         private Context mContext;
 
+        public TrendingNewsViewHolder(View itemView) {
+            super(itemView);
+            ButterKnife.bind(this, itemView);
+            mContext = itemView.getContext();
+        }
+
 
     }
 }
