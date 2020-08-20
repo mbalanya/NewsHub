@@ -3,6 +3,9 @@ package com.chalookoba.newshub;
 import android.content.Intent;
 import android.widget.TextView;
 
+import com.chalookoba.newshub.ui.MainActivity;
+import com.chalookoba.newshub.ui.TrendingNewsActivity;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

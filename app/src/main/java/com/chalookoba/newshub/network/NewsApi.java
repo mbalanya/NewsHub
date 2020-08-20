@@ -1,4 +1,6 @@
-package com.chalookoba.newshub;
+package com.chalookoba.newshub.network;
+
+import com.chalookoba.newshub.models.NewsHubSearchResponse;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

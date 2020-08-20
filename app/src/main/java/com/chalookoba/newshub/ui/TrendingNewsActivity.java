@@ -1,4 +1,4 @@
-package com.chalookoba.newshub;
+package com.chalookoba.newshub.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,7 +13,13 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
+import com.chalookoba.newshub.Constants;
+import com.chalookoba.newshub.R;
+import com.chalookoba.newshub.TrendingNewsArrayAdapter;
+import com.chalookoba.newshub.models.Article;
+import com.chalookoba.newshub.models.NewsHubSearchResponse;
+import com.chalookoba.newshub.network.NewsApi;
+import com.chalookoba.newshub.network.NewsClient;
 
 import java.util.List;
 

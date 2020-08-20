@@ -1,5 +1,5 @@
 
-package com.chalookoba.newshub;
+package com.chalookoba.newshub.models;
 
 import java.util.List;
 import com.google.gson.annotations.Expose;
